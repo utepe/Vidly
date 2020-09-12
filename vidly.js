@@ -60,11 +60,6 @@ app.delete('/api/genres/:id', (req, res) => {
     const genre = genres.find(g => g.id === parseInt(req.params.id));
     if(!genre) return res.status(404).send('The genre with the given ID was not found');
 
-    // Validate
-    // If invalid, return 400, Bad Request    
-    const { error } = validateGenre(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
-
     // Delete
     const index = genres.indexOf(genre);
     genres.splice(index, 1);
