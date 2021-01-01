@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost:27017/vidly', { useNewUrlParser: true, use
 
 app.use(express.json());
 app.use('/api/genres', genres);
-app.use('/api/cusomters', customers);
+app.use('/api/customers', customers);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {console.log(`Listening on port ${port}...`)});
