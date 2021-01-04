@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
         name: req.body.name,
         phone: req.body.phone
     });
-    customer = await customer.save();
+    await customer.save();
 
     res.send(customer);
 });

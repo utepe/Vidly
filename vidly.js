@@ -2,6 +2,8 @@
 // endpoint for getting list of all genres
 // create new genres, update and delete existing genres 
 // /api/genres
+const Joi = require('Joi');
+Joi.objectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 const genres = require('./routes/genres');
 const customers = require('./routes/customers');
