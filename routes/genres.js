@@ -1,5 +1,6 @@
 const auth = require('../middleware/auth');
-const { Genre, validate } = require('../models/genre')
+const admin = require('../middleware/admin');
+const { Genre, validate } = require('../models/genre');
 const express = require('express');
 const router = express.Router();
 
@@ -38,7 +39,7 @@ router.put('/:id', auth, async (req, res) => {
     res.send(genre);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', [auth, admin], async (req, res) => {
     // Lookup the course
     // If not existing, return 404
     const genre = await Genre.findByIdAndRemove(req.params.id);
